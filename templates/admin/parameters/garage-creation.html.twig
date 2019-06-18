@@ -1,0 +1,30 @@
+{% extends 'layout/admin-layout.html.twig' %}
+
+{% block descritption %}
+
+{% endblock %}
+
+{% block title %}
+CarManager - Ajout d'un point de ventes
+{% endblock %}
+
+{% block container %}
+<section>
+    <h1>Ajout d'un point de ventes</h1>
+    <div class="wrapper-grid-container">
+        {{ form_start(form) }}
+        <div class="floating-label" style="margin: 2em 0">
+            {{ form_widget(form.name) }}
+            {{ form_label(form.name) }}
+        </div>
+        <div class="floating-label" style="margin: 2em 0">
+            {{ form_widget(form.code) }}
+            {{ form_label(form.code) }}
+        </div>
+        <div>
+            <button type="submit" class="btn btn-mout mt-2">Enregistrer</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+</section>
+{% endblock %}

@@ -17,7 +17,7 @@ class User implements UserInterface
     /**
      * @var int
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\GeneratedValue
      * @ORM\SequenceGenerator(sequenceName="id")
      * @ORM\Column(type="integer")
      */

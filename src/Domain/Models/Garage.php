@@ -13,7 +13,7 @@ class Garage
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     private $id;
@@ -33,10 +33,10 @@ class Garage
      * @param $code
      * @param $name
      */
-    public function __construct(string $code, string $name)
+    public function __construct(string $name, string $code = null)
     {
-        $this->code = $code;
         $this->name = $name;
+        $this->code = $code;
     }
 
     /**

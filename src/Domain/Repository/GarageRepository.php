@@ -15,4 +15,18 @@ class GarageRepository extends ServiceEntityRepository implements GarageReposito
     {
         parent::__construct($registry, Garage::class);
     }
+
+    public function getAll(): array
+    {
+        return $this->createQueryBuilder('garage')
+                                ->orderBy('garage.name', 'ASC')
+                                ->getQuery()
+                                ->getResult();
+    }
+
+    public function save(Garage $garage): void
+    {
+        $this->_em->persist($garage);
+        $this->_em->flush();
+    }
 }

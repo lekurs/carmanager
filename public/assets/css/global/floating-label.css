@@ -6,7 +6,7 @@
 /** SPECIFICITES SITE EN COURS **/
 legend {
     font-family: "AristaProAlternateExtraLight";
-    color:#FFFFFF; /*couleur  label à changer si besoin*/
+    color:#000000; /*couleur  label à changer si besoin*/
     font-size:22px;
     font-weight:bold;
     margin-top: 2rem;
@@ -44,7 +44,7 @@ legend {
 }
 
 label.float {
-    color:#FFFFFF;
+    color: #000000;
     font-family: "AristaProAlternateHairline";
     font-weight: 200;
     font-size:16px;
