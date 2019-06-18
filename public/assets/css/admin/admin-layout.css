@@ -1,0 +1,19 @@
+/*.admin-grid-container {*/
+/*    grid-template-rows: 9fr 50px;*/
+/*    grid-template-columns: 100%;*/
+/*    min-height: 100vh;*/
+/*    width: calc(100% - 10em);*/
+/*    margin-left: 10em;*/
+/*}*/
+
+/*.wrapper-grid-container {*/
+/*    width: 96%;*/
+/*    margin: 4em auto 0;*/
+/*    display: grid;*/
+/*    grid-template-rows: 100px auto;*/
+/*}*/
+
+/*.admin-footer {*/
+/*    grid-column: 1 / span 2;*/
+/*    grid-row: 2;*/
+/*}*/

@@ -1,0 +1,69 @@
+.uploaded-images-container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fit, 150px);
+    grid-gap: 10px;
+}
+
+.uploaded-images-content {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px #4e555b;
+}
+
+.uploaded-images-plus {
+    font-size: 2em;
+    position: absolute;
+    z-index: 1000;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+/*.uploaded-images-content::before {*/
+/*    font-family: "Font Awesome 5 Free";*/
+/*    content: "\f055";*/
+/*    font-size: 2em;*/
+/*    color: green;*/
+/*    position: absolute;*/
+/*    width: auto;*/
+/*    height: auto;*/
+/*    font-weight: 900;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    cursor: pointer;*/
+/*    -webkit-transition: all .3s ease-in-out;*/
+/*    -moz-transition: all .3s ease-in-out;*/
+/*    -ms-transition: all .3s ease-in-out;*/
+/*    -o-transition: all .3s ease-in-out;*/
+/*    transition: all .3s ease-in-out;*/
+/*}*/
+
+.uploaded-images-content:hover.uploaded-images-content::before {
+    font-size: 3em;
+}
+
+.uploaded-images-content > input {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.uploaded-images-image {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1001;
+}
