@@ -7,6 +7,7 @@ namespace App\Domain\Handler;
 use App\Domain\Factory\Interfaces\GarageFactoryInterface;
 use App\Domain\Handler\Interfaces\GarageCreationFormHandlerInterface;
 use App\Domain\Repository\Interfaces\GarageRepositoryInterface;
+use App\Services\Interfaces\SlugHelperInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -20,6 +21,10 @@ final class GarageCreationFormHandler implements GarageCreationFormHandlerInterf
     private $session;
 
     private $validator;
+    /**
+     * @var SlugHelperInterface
+     */
+    private $slugHelper;
 
     /**
      * GarageCreationFormHandler constructor.
@@ -30,12 +35,14 @@ final class GarageCreationFormHandler implements GarageCreationFormHandlerInterf
         GarageFactoryInterface $garageFactory,
         GarageRepositoryInterface $garageRepo,
         SessionInterface $session,
-        ValidatorInterface $validator
+        ValidatorInterface $validator,
+        SlugHelperInterface $slugHelper
     ) {
         $this->garageFactory = $garageFactory;
         $this->garageRepo = $garageRepo;
         $this->session = $session;
         $this->validator = $validator;
+        $this->slugHelper = $slugHelper;
     }
 
     /**
@@ -45,7 +52,11 @@ final class GarageCreationFormHandler implements GarageCreationFormHandlerInterf
     {
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $garage = $this->garageFactory->create($form->getData()->name, $form->getData()->code);
+            $garage = $this->garageFactory->create(
+                $form->getData()->name,
+                $this->slugHelper->replace($form->getData()->name),
+                $form->getData()->code
+            );
 
             $this->garageRepo->save($garage);
 

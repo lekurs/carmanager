@@ -29,13 +29,20 @@ class Garage
     private $name;
 
     /**
-     * Garage constructor.
-     * @param $code
-     * @param $name
+     * @ORM\Column(type="string", length=255, unique=true, nullable=false)
      */
-    public function __construct(string $name, string $code = null)
+    private $slug;
+
+    /**
+     * Garage constructor.
+     * @param string $name
+     * @param string $code
+     * @param $slug
+     */
+    public function __construct(string $name, string  $slug, string $code = null)
     {
         $this->name = $name;
+        $this->slug = $slug;
         $this->code = $code;
     }
 
