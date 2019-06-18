@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * Class GarageShowAction
  * @Route(name="garageShow", path="admin/pdv")
  */
-class GarageShowAction implements GarageShowActionInterface
+final class GarageShowAction implements GarageShowActionInterface
 {
     private $garageRepo;
 

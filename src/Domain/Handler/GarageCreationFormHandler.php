@@ -55,7 +55,8 @@ final class GarageCreationFormHandler implements GarageCreationFormHandlerInterf
             $garage = $this->garageFactory->create(
                 $form->getData()->name,
                 $this->slugHelper->replace($form->getData()->name),
-                $form->getData()->code
+                $form->getData()->code,
+                $form->getData()->marque
             );
 
             $this->garageRepo->save($garage);

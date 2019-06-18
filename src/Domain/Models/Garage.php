@@ -29,6 +29,12 @@ class Garage
     private $name;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Marque")
+     * @ORM\JoinColumn(name="marque_id", referencedColumnName="id")
+     */
+    private $marque;
+
+    /**
      * @ORM\Column(type="string", length=255, unique=true, nullable=false)
      */
     private $slug;
@@ -36,14 +42,20 @@ class Garage
     /**
      * Garage constructor.
      * @param string $name
+     * @param string $slug
      * @param string $code
-     * @param $slug
+     * @param $marque
      */
-    public function __construct(string $name, string  $slug, string $code = null)
-    {
+    public function __construct(
+        string $name,
+        string $slug,
+        string $code = null,
+        $marque= null
+    ) {
         $this->name = $name;
         $this->slug = $slug;
         $this->code = $code;
+        $this->marque = $marque;
     }
 
     /**
