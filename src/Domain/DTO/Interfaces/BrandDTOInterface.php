@@ -4,12 +4,12 @@
 namespace App\Domain\DTO\Interfaces;
 
 
-interface MarqueDTOInterface
+interface BrandDTOInterface
 {
     /**
      * MarqueDTOInterface constructor.
      *
-     * @param string $marque
+     * @param string $brand
      */
-    public function __construct(string $marque);
+    public function __construct(string $brand);
 }

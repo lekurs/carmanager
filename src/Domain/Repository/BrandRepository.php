@@ -13,20 +13,20 @@ class BrandRepository extends ServiceEntityRepository implements BrandRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Marque::class);
+        parent::__construct($registry, Brand::class);
     }
 
     public function getAll(): array
     {
-        return $this->createQueryBuilder('marque')
-                                ->orderBy('marque.marque', 'ASC')
+        return $this->createQueryBuilder('brand')
+                                ->orderBy('brand.brand', 'ASC')
                                 ->getQuery()
                                 ->getResult();
     }
 
-    public function save(Marque $marque): void
+    public function save(Brand $brand): void
     {
-        $this->_em->persist($marque);
+        $this->_em->persist($brand);
         $this->_em->flush();
     }
 }

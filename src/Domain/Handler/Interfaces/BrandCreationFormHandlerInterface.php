@@ -10,10 +10,10 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-interface MarqueCreationFormHandlerInterface
+interface BrandCreationFormHandlerInterface
 {
     /**
-     * MarqueCreationFormHandlerInterface constructor.
+     * BrandCreationFormHandlerInterface constructor.
      *
      * @param BrandRepositoryInterface $marqueRepo
      * @param BrandFactoryInterface $marqueFactory

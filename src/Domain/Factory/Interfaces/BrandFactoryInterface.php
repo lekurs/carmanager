@@ -4,13 +4,13 @@
 namespace App\Domain\Factory\Interfaces;
 
 
-use App\Domain\Models\Marque;
+use App\Domain\Models\Brand;
 
 interface BrandFactoryInterface
 {
     /**
-     * @param string $marque
-     * @return Marque
+     * @param string $brand
+     * @return Brand
      */
-    public function create(string $marque): Marque;
+    public function create(string $brand): Brand;
 }
