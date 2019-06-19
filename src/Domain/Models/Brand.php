@@ -6,12 +6,12 @@ namespace App\Domain\Models;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class Marque
+ * Class Brand
  *
- * @ORM\Table(name="carmanager_marque")
- * @ORM\Entity(repositoryClass="App\Domain\Repository\MarqueRepository")
+ * @ORM\Table(name="carmanager_brand")
+ * @ORM\Entity(repositoryClass="App\Domain\Repository\BrandRepository")
  */
-class Marque
+class Brand
 {
     /**
      * @ORM\Id
@@ -23,15 +23,15 @@ class Marque
     /**
      * @ORM\Column(type="string", length=100, nullable=false, unique=true)
      */
-    private $marque;
+    private $brand;
 
     /**
      * Marque constructor.
-     * @param $marque
+     * @param $brand
      */
-    public function __construct(string $marque)
+    public function __construct(string $brand)
     {
-        $this->marque = $marque;
+        $this->brand = $brand;
     }
 
     /**
@@ -45,8 +45,8 @@ class Marque
     /**
      * @return mixed
      */
-    public function getMarque(): string
+    public function getBrand(): string
     {
-        return $this->marque;
+        return $this->brand;
     }
 }

@@ -4,7 +4,7 @@
 namespace App\Domain\Repository\Interfaces;
 
 
-interface MarqueRepositoryInterface
+interface CarRepositoryInterface
 {
 
 }

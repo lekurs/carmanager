@@ -22,7 +22,7 @@ class GarageCreationDTO implements GarageCreationDTOInterface
      * @param string $code
      * @param Marque|null $marque
      */
-    public function __construct(string $name, string $code = null, Marque $marque = null)
+    public function __construct(string $name, string $code = null, Brand $marque = null)
     {
         $this->name = $name;
         $this->code = $code;

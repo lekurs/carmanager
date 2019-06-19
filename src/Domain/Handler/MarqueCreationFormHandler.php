@@ -4,9 +4,9 @@
 namespace App\Domain\Handler;
 
 
-use App\Domain\Factory\Interfaces\MarqueFactoryInterface;
+use App\Domain\Factory\Interfaces\BrandFactoryInterface;
 use App\Domain\Handler\Interfaces\MarqueCreationFormHandlerInterface;
-use App\Domain\Repository\Interfaces\MarqueRepositoryInterface;
+use App\Domain\Repository\Interfaces\BrandRepositoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -27,8 +27,8 @@ class MarqueCreationFormHandler implements MarqueCreationFormHandlerInterface
      * @inheritDoc
      */
     public function __construct(
-        MarqueRepositoryInterface $marqueRepo,
-        MarqueFactoryInterface $marqueFactory,
+        BrandRepositoryInterface $marqueRepo,
+        BrandFactoryInterface $marqueFactory,
         SessionInterface $session,
         ValidatorInterface $validator
     ) {

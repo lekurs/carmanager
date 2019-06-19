@@ -19,7 +19,7 @@ class Garage
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=20, unique=true, nullable=true)
+     * @ORM\Column(type="string", length=20, unique=true, nullable=true, columnDefinition="UNSIGNED ZEROFILL")
      */
     private $code;
 
@@ -29,7 +29,7 @@ class Garage
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Marque")
+     * @ORM\ManyToOne(targetEntity="Brand")
      * @ORM\JoinColumn(name="marque_id", referencedColumnName="id")
      */
     private $marque;

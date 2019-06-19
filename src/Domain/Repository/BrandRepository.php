@@ -4,12 +4,12 @@
 namespace App\Domain\Repository;
 
 
-use App\Domain\Models\Marque;
-use App\Domain\Repository\Interfaces\MarqueRepositoryInterface;
+use App\Domain\Models\Brand;
+use App\Domain\Repository\Interfaces\BrandRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
-class MarqueRepository extends ServiceEntityRepository implements MarqueRepositoryInterface
+class BrandRepository extends ServiceEntityRepository implements BrandRepositoryInterface
 {
     public function __construct(ManagerRegistry $registry)
     {

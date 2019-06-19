@@ -4,8 +4,8 @@
 namespace App\Domain\Handler\Interfaces;
 
 
-use App\Domain\Factory\Interfaces\MarqueFactoryInterface;
-use App\Domain\Repository\Interfaces\MarqueRepositoryInterface;
+use App\Domain\Factory\Interfaces\BrandFactoryInterface;
+use App\Domain\Repository\Interfaces\BrandRepositoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -15,14 +15,14 @@ interface MarqueCreationFormHandlerInterface
     /**
      * MarqueCreationFormHandlerInterface constructor.
      *
-     * @param MarqueRepositoryInterface $marqueRepo
-     * @param MarqueFactoryInterface $marqueFactory
+     * @param BrandRepositoryInterface $marqueRepo
+     * @param BrandFactoryInterface $marqueFactory
      * @param SessionInterface $session
      * @param ValidatorInterface $validator
      */
     public function __construct(
-        MarqueRepositoryInterface $marqueRepo,
-        MarqueFactoryInterface $marqueFactory,
+        BrandRepositoryInterface $marqueRepo,
+        BrandFactoryInterface $marqueFactory,
         SessionInterface $session,
         ValidatorInterface $validator
     );

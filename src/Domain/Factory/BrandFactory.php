@@ -4,10 +4,10 @@
 namespace App\Domain\Factory;
 
 
-use App\Domain\Factory\Interfaces\MarqueFactoryInterface;
+use App\Domain\Factory\Interfaces\BrandFactoryInterface;
 use App\Domain\Models\Marque;
 
-class MarqueFactory implements MarqueFactoryInterface
+class BrandFactory implements BrandFactoryInterface
 {
     /**
      * @inheritDoc
