@@ -19,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * Class UserEditAction
  * @Route(name="userEdit", path="admin/uilisateur/{slug}")
  */
-class UserEditAction implements UserEditActionInterface
+final class UserEditAction implements UserEditActionInterface
 {
     private $userRepo;
 

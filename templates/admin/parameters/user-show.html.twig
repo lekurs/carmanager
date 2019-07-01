@@ -12,36 +12,40 @@
 <section>
     <h1>Gestion utilisateurs</h1>
     <div class="wrapper-grid-container">
-        <table id="user-managment" class="table table-hover">
-            <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Plaque</th>
-                <th>Garage</th>
-                <th>Accès</th>
-                <th>Email</th>
-                <th>Online</th>
-                <th><i class="fas fa-edit"></i> </th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for user in users %}
-            <tr>
-                <td>{{ user.username }}</td>
-                <td>{{ user.lastName }}</td>
-                <td>{% if user.garage is not null %}{{ user.garage.plaque.name }}{% endif %}NC</td>
-                <td>{% if user.garage is not null %}{{ user.garage.name }}{% endif %}NC</td>
-                <td>{{ user.roles }}</td>
-                <td>{{ user.email }}</td>
-                <td><i class="fas fa-circle {% if user.online > 0 %}user-active {% endif %}"></i></td>
-                <td><a href="{{ path('userEdit', {'slug': user.slug}) }}"><i class="fas fa-edit" data-slug="{{ user.slug }}"></i> </a> </td>
-            </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+        <div>
+            <a href="{{ path('userCreation') }}" class="btn btn-mout">Ajouter un utilisateur</a>
+        </div>
+        <div>
+            <table id="user-managment" class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Plaque</th>
+                    <th>Garage</th>
+                    <th>Accès</th>
+                    <th>Email</th>
+                    <th>Online</th>
+                    <th><i class="fas fa-edit"></i> </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td>{% if user.garage is not null %}{{ user.garage.plaque.name }}{% endif %}NC</td>
+                    <td>{% if user.garage is not null %}{{ user.garage.name }}{% endif %}NC</td>
+                    <td>{{ user.roles }}</td>
+                    <td>{{ user.email }}</td>
+                    <td><i class="fas fa-circle {% if user.online > 0 %}user-active {% endif %}"></i></td>
+                    <td><a href="{{ path('userEdit', {'slug': user.slug}) }}"><i class="fas fa-edit" data-slug="{{ user.slug }}"></i> </a> </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-
 </section>
 
 {% endblock %}

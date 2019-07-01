@@ -5,6 +5,7 @@ namespace App\Domain\Models;
 
 
 use App\Domain\DTO\Interfaces\UserEditFormDTOInterface;
+use App\Domain\DTO\Security\UserEditFormDTO;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -186,6 +187,11 @@ class User implements UserInterface
         return $this->garage;
     }
 
+    /**
+     * Manage User
+     * @param UserEditFormDTOInterface $dto
+     * @param $password | null
+     */
     public function editUser(UserEditFormDTOInterface $dto, $password = null): void
     {
         $this->username = $dto->username;

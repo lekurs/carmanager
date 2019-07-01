@@ -11,7 +11,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-class UserEditFormHandler implements UserEditFormHandlerInterface
+final class UserEditFormHandler implements UserEditFormHandlerInterface
 {
     private $userRepo;
 
@@ -21,6 +21,7 @@ class UserEditFormHandler implements UserEditFormHandlerInterface
 
     /**
      * UserEditFormHandler constructor.
+     *
      * @param $userRepo
      * @param $session
      * @param $validator
@@ -42,9 +43,7 @@ class UserEditFormHandler implements UserEditFormHandlerInterface
             if (!empty($form->getData()->password)) {
                 $user->editUser($form->getData());
             } else {
-                $password = $user->getPassword();
-
-                $user->editUser($form->getData(), $password);
+                $user->editUser($form->getData(), $user->getPassword());
             }
 
             $this->userRepo->edit();
