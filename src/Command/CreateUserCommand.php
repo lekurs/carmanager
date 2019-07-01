@@ -68,7 +68,8 @@ class CreateUserCommand extends Command
         $callable = Closure::fromCallable([$encoder, 'encodePassword']);
 
         $user = new User(
-            $input->getArgument('login'),
+            $input->getArgument('username'),
+            $input->getArgument('lastName'),
             $input->getArgument('password'),
             $callable,
             'ROLE_ADMIN',

@@ -4,6 +4,7 @@
 namespace App\Domain\Models;
 
 
+use App\Domain\DTO\Interfaces\UserEditFormDTOInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -30,6 +31,11 @@ class User implements UserInterface
     private $username;
 
     /**
+     * @ORM\Column(type="string", length=150, nullable=false, unique=false)
+     */
+    private $lastName;
+
+    /**
      * @var string
      * @ORM\Column(type="string", length=255, nullable=false, unique=true)
      */
@@ -48,6 +54,11 @@ class User implements UserInterface
     private $email;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $online;
+
+    /**
      * @var string
      * @ORM\Column(type="string", length=255, nullable=false, unique=true)
      */
@@ -62,27 +73,33 @@ class User implements UserInterface
     /**
      * User constructor.
      * @param string $username
+     * @param string $lastName
      * @param string $password
      * @param callable $encoder
      * @param array $roles
      * @param string $email
+     * @param bool $online
      * @param string $slug
      * @param Garage|null $garage
      */
     public function __construct(
         string $username,
+        string $lastName,
         string $password,
         callable $encoder,
-        array $roles,
+        $roles,
         string $email,
+        bool $online,
         string $slug,
         Garage $garage = null
     ) {
         $this->username = $username;
+        $this->lastName = $lastName;
         $this->password = $password;
         $this->password = $encoder($password, null);
         $this->roles = $roles;
         $this->email = $email;
+        $this->online = $online;
         $this->slug = $slug;
         $this->garage = $garage;
     }
@@ -104,6 +121,14 @@ class User implements UserInterface
     }
 
     /**
+     * @return mixed
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
      * @return string
      */
     public function getPassword(): string
@@ -112,9 +137,9 @@ class User implements UserInterface
     }
 
     /**
-     * @return array
+     * @return string
      */
-    public function getRoles(): array
+    public function getRoles(): string
     {
         return $this->roles;
     }
@@ -125,6 +150,14 @@ class User implements UserInterface
     public function getEmail(): string
     {
         return $this->email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOnline()
+    {
+        return $this->online;
     }
 
     /**
@@ -151,5 +184,21 @@ class User implements UserInterface
     public function getGarage()
     {
         return $this->garage;
+    }
+
+    public function editUser(UserEditFormDTOInterface $dto, $password = null): void
+    {
+        $this->username = $dto->username;
+        $this->lastName = $dto->lastName;
+        if (!is_null($password)) {
+            $this->password = $password;
+        } else {
+            $this->password = $dto->password;
+        }
+        $this->email = $dto->email;
+        $this->online = $dto->online;
+        $this->slug = $dto->slug;
+        $this->roles = $dto->roles;
+        $this->garage = $dto->garage;
     }
 }

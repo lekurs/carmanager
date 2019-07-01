@@ -1,0 +1,52 @@
+{% extends 'layout/admin-layout.html.twig' %}
+
+{% block descritption %}
+
+{% endblock %}
+
+{% block title %}
+    CarManager - Ajout d'une marque
+{% endblock %}
+
+{% block container %}
+    <section>
+        <h1>Ajout d'une marque</h1>
+        <div class="wrapper-grid-container">
+            {{ form_start(form) }}
+            <div class="floating-label" style="margin: 2em 0">
+                {{ form_widget(form.username) }}
+                {{ form_label(form.username) }}
+            </div>
+
+            <div class="floating-label" style="margin: 2em 0">
+                {{ form_widget(form.lastName) }}
+                {{ form_label(form.lastName) }}
+            </div>
+
+            <div class="floating-label" style="margin: 2em 0">
+                {{ form_widget(form.email) }}
+                {{ form_label(form.email) }}
+            </div>
+
+            <div class="floating-label" style="margin: 2em 0">
+                {{ form_widget(form.password) }}
+                {{ form_label(form.password) }}
+            </div>
+
+            <div class="floating-label" style="margin: 2em 0">
+                {{ form_widget(form.roles) }}
+                {{ form_label(form.roles) }}
+            </div>
+
+            <div class="floating-label" style="margin: 2em 0">
+                {{ form_widget(form.garage) }}
+                {{ form_label(form.garage) }}
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-mout mt-2">Ajouter</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </section>
+{% endblock %}
