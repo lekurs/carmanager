@@ -30,9 +30,15 @@ class Garage
 
     /**
      * @ORM\ManyToOne(targetEntity="Brand")
-     * @ORM\JoinColumn(name="marque_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
      */
-    private $marque;
+    private $brand;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Plaque")
+     * @ORM\JoinColumn(name="plaque_id", referencedColumnName="id")
+     */
+    private $plaque;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true, nullable=false)
@@ -44,18 +50,21 @@ class Garage
      * @param string $name
      * @param string $slug
      * @param string $code
-     * @param $marque
+     * @param Plaque|null $plaque
+     * @param $brand
      */
     public function __construct(
         string $name,
         string $slug,
         string $code = null,
-        $marque= null
+        Plaque $plaque = null,
+        $brand= null
     ) {
         $this->name = $name;
         $this->slug = $slug;
         $this->code = $code;
-        $this->marque = $marque;
+        $this->plaque = $plaque;
+        $this->brand = $brand;
     }
 
     /**
@@ -80,5 +89,29 @@ class Garage
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPlaque()
+    {
+        return $this->plaque;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

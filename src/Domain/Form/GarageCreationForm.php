@@ -6,7 +6,9 @@ namespace App\Domain\Form;
 
 use App\Domain\DTO\GarageCreationDTO;
 use App\Domain\DTO\Interfaces\GarageCreationDTOInterface;
+use App\Domain\Models\Brand;
 use App\Domain\Models\Marque;
+use App\Domain\Models\Plaque;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -31,9 +33,18 @@ class GarageCreationForm extends AbstractType
                 'label' => 'Code point de ventes *',
                 'required' => false,
             ])
-        ->add('marque', EntityType::class, [
-            'class' => Marque::class,
-            'choice_label' => 'name'
+        ->add('plaque', EntityType::class, [
+            'class' => Plaque::class,
+            'choice_label' => 'name',
+            'placeholder' => 'Selectionnez une plaque',
+            'required' => false
+
+        ])
+        ->add('brand', EntityType::class, [
+            'class' => Brand::class,
+            'choice_label' => 'brand',
+            'placeholder' => 'Selectionnez une marque',
+            'required' => false
         ]);
     }
 
@@ -45,7 +56,8 @@ class GarageCreationForm extends AbstractType
                 return new GarageCreationDTO(
                     $form->get('name')->getData(),
                     $form->get('code')->getData(),
-                    $form->get('marque')->getData()
+                    $form->get('plaque')->getData(),
+                    $form->get('brand')->getData()
                 );
             }
             ]);

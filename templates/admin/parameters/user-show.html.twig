@@ -34,8 +34,8 @@
                 <tr>
                     <td>{{ user.username }}</td>
                     <td>{{ user.lastName }}</td>
-                    <td>{% if user.garage is not null %}{{ user.garage.plaque.name }}{% endif %}NC</td>
-                    <td>{% if user.garage is not null %}{{ user.garage.name }}{% endif %}NC</td>
+                    <td>{% if user.garage is not null %}{{ user.garage.plaque.name }}{% else %}NC{% endif %}</td>
+                    <td>{% if user.garage is not null %}{{ user.garage.name }}{% else %}NC{% endif %}</td>
                     <td>{{ user.roles }}</td>
                     <td>{{ user.email }}</td>
                     <td><i class="fas fa-circle {% if user.online > 0 %}user-active {% endif %}"></i></td>

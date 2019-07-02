@@ -5,7 +5,9 @@ namespace App\Domain\DTO;
 
 
 use App\Domain\DTO\Interfaces\GarageCreationDTOInterface;
+use App\Domain\Models\Brand;
 use App\Domain\Models\Marque;
+use App\Domain\Models\Plaque;
 
 class GarageCreationDTO implements GarageCreationDTOInterface
 {
@@ -13,19 +15,22 @@ class GarageCreationDTO implements GarageCreationDTOInterface
 
     public $name;
 
-    public $marque;
+    public $plaque;
+
+    public $brand;
 
     /**
      * GarageCreationDTO constructor.
-     *
-     * @param string $name
-     * @param string $code
-     * @param Marque|null $marque
+     * @param $code
+     * @param $name
+     * @param $plaque
+     * @param $brand
      */
-    public function __construct(string $name, string $code = null, Brand $marque = null)
+    public function __construct(string $code, string $name, Plaque $plaque = null, Brand $brand = null)
     {
-        $this->name = $name;
         $this->code = $code;
-        $this->marque = $marque;
+        $this->name = $name;
+        $this->plaque = $plaque;
+        $this->brand = $brand;
     }
 }
