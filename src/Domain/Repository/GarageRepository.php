@@ -19,6 +19,8 @@ class GarageRepository extends ServiceEntityRepository implements GarageReposito
     {
         return $this->createQueryBuilder('garage')
                                 ->orderBy('garage.name', 'ASC')
+                                ->orderBy('garage.plaque', 'ASC')
+                                ->orderBy('garage.brand', 'ASC')
                                 ->getQuery()
                                 ->getResult();
     }

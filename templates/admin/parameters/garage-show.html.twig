@@ -12,9 +12,39 @@
 <section>
     <h1>Liste des points de ventes</h1>
     <div class="wrapper-grid-container">
-        {% for garage in garages %}
-        {{ garage.name }}
-        {% endfor %}
+        <table class="table table-hover" id="garage-table">
+            <thead>
+            <tr>
+                <th scope="col">plaque</th>
+                <th scope="col">code</th>
+                <th scope="col">name</th>
+                <th scope="col"><i class="fas fa-edit"></i></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for key, garageTab in garages %}
+                {% for garage in garageTab %}
+                    <tr>
+                            <td>{{ garage.plaque.name }}</td>
+                            <td>{{ garage.code }}</td>
+                            <td>{{ garage.name }}</td>
+                            <td><a href="#"><i class="fas fa-edit garage-edit" data-slug="{{ garage.slug }}"></i></a></td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
 </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<script>
+    $(document).ready(function () {
+        $('#garage-table').DataTable({
+
+        });
+    });
+</script>
 {% endblock %}

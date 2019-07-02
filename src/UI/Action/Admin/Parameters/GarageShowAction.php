@@ -32,6 +32,12 @@ final class GarageShowAction implements GarageShowActionInterface
     {
         $garages = $this->garageRepo->getAll();
 
-        return $responder->response($garages);
+        $garagesByPlaques = [];
+
+        foreach ($garages as $garage) {
+            $garagesByPlaques[$garage->getPlaque()->getName()][] = $garage;
+        }
+
+        return $responder->response($garagesByPlaques);
     }
 }
