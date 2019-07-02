@@ -5,7 +5,6 @@ namespace App\Domain\Models;
 
 
 use App\Domain\DTO\Interfaces\UserEditFormDTOInterface;
-use App\Domain\DTO\Security\UserEditFormDTO;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 

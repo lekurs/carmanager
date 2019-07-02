@@ -7,7 +7,7 @@ namespace App\Domain\Factory;
 use App\Domain\Factory\Interfaces\BrandFactoryInterface;
 use App\Domain\Models\Brand;
 
-class BrandFactory implements BrandFactoryInterface
+final class BrandFactory implements BrandFactoryInterface
 {
     /**
      * @inheritDoc

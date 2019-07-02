@@ -9,7 +9,7 @@ use App\Domain\Models\Garage;
 use App\Domain\Models\User;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 
-class UserFactory implements UserFactoryInterface
+final class UserFactory implements UserFactoryInterface
 {
     private $encoderFactory;
 

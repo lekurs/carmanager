@@ -39,7 +39,6 @@ class Car
      */
     public function __construct(string $model, Brand $brand)
     {
-//        $this->id = \Ramsey\Uuid\Uuid::uuid4();
         $this->model = $model;
         $this->brand = $brand;
     }

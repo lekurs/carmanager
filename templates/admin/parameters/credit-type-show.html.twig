@@ -1,0 +1,47 @@
+{% extends 'layout/admin-layout.html.twig' %}
+
+{% block descritption %}
+
+{% endblock %}
+
+{% block title %}
+    CarManager - Ajout d'un point de ventes
+{% endblock %}
+
+{% block container %}
+<section>
+    <h1>Liste des types de financement</h1>
+    <div class="wrapper-grid-container">
+        <div>
+            <a href="{{ path('creditTypeCreation') }}" class="btn btn-mout">Ajouter un type de financement</a>
+        </div>
+        <table class="table table-hover" id="credit-type-table">
+            <thead>
+            <tr>
+                <th>Financement</th>
+                <th><i class="fas fa-trash"></i> </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for creditType in creditTypes %}
+                <tr>
+                    <td contenteditable="true">{{ creditType.type}}</td>
+                    <td><i class="fas fa-trash"></i> </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}
+
+{#{% block javascripts %}#}
+{#    {{ parent() }}#}
+{#<script>#}
+{#    // $(document).ready(function () {#}
+{#    //     $('#garage-table').DataTable({#}
+{#    //#}
+{#    //     });#}
+{#    // });#}
+{#</script>#}
+{#{% endblock %}#}

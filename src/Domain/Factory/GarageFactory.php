@@ -9,7 +9,7 @@ use App\Domain\Models\Brand;
 use App\Domain\Models\Garage;
 use App\Domain\Models\Plaque;
 
-class GarageFactory implements GarageFactoryInterface
+final class GarageFactory implements GarageFactoryInterface
 {
     public function create(string $name, string $slug, string $code = null, Plaque $plaque = null, Brand $brand = null): Garage
     {
