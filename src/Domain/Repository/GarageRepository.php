@@ -25,9 +25,23 @@ class GarageRepository extends ServiceEntityRepository implements GarageReposito
                                 ->getResult();
     }
 
+    public function getOneBySlug($slug): Garage
+    {
+        return $this->createQueryBuilder('garage')
+                                ->where('garage.slug = :slug')
+                                ->setParameter('slug', $slug)
+                                ->getQuery()
+                                ->getOneOrNullResult();
+    }
+
     public function save(Garage $garage): void
     {
         $this->_em->persist($garage);
+        $this->_em->flush();
+    }
+
+    public function edit(): void
+    {
         $this->_em->flush();
     }
 }

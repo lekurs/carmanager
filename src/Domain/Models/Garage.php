@@ -3,6 +3,7 @@
 
 namespace App\Domain\Models;
 
+use App\Domain\DTO\Interfaces\GarageEditDTOInterface;
 use Doctrine\ORM\Mapping as ORM;
 /**
  * Class Garage
@@ -113,5 +114,14 @@ class Garage
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    public function editGarage(GarageEditDTOInterface $dto)
+    {
+        $this->name = $dto->name;
+        $this->code = $dto->code;
+        $this->plaque = $dto->plaque;
+        $this->brand = $dto->brand;
+        $this->slug = $dto->slug;
     }
 }

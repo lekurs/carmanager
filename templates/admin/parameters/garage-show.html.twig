@@ -28,7 +28,7 @@
                             <td>{{ garage.plaque.name }}</td>
                             <td>{{ garage.code }}</td>
                             <td>{{ garage.name }}</td>
-                            <td><a href="#"><i class="fas fa-edit garage-edit" data-slug="{{ garage.slug }}"></i></a></td>
+                            <td><a href="{{ path('garageEdit', {'slug': garage.slug}) }}"><i class="fas fa-edit garage-edit"></i></a></td>
                     </tr>
                 {% endfor %}
             {% endfor %}
